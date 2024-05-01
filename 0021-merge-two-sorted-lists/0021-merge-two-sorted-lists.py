@@ -2,17 +2,6 @@ class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
-
-def ListToSLL(l):
-    if not l:
-        return None
-    head = ListNode(l[0])
-    curr = head
-    for value in l[1:]:
-        curr.next = ListNode(value)
-        curr = curr.next
-    return head
-
 class Solution:
     def mergeTwoLists(self, list1: ListNode, list2: ListNode) -> ListNode:
         dummy = ListNode()
