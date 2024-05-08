@@ -3,15 +3,10 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        a, b = 0, 1
+        i = 0
         n = len(nums)
-        while b < n:
-            if nums[a] != 0:
-                a += 1
-                b += 1
-            elif nums[b] == 0:
-                b += 1
-            else:
-                nums[a], nums[b]= nums[b], nums[a]
-                a += 1
-                b += 1
+        for j in range(len(nums)):
+            if nums[j] != 0:
+                nums[i], nums[j] = nums[j], nums[i]
+                i += 1
+            
