@@ -4,7 +4,7 @@ class Solution:
         pastPeak = False
         curr = 0
         out = 0
-        len_arr = len(arr) ## efficient
+        len_arr = len(arr)
         
         while curr < len_arr:
             if curr == len_arr - 1:
@@ -25,7 +25,7 @@ class Solution:
                 if arr[curr] < arr[curr+1]:
                     start = curr
                     curr = start + 1
-                else: # arr[curr] == arr[curr+1]
+                else:
                     start = curr + 1
                     curr = start
                     
