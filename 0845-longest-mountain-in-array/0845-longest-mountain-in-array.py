@@ -4,10 +4,10 @@ class Solution:
         pastPeak = False
         curr = 0
         out = 0
-        len_arr = len(arr)
+        # len_arr = len(arr)
         
-        while curr < len_arr:
-            if curr == len_arr - 1:
+        while curr < len(arr):
+            if curr == len(arr) - 1:
                 if pastPeak:
                     out = max(curr - start + 1, out)
                 break
