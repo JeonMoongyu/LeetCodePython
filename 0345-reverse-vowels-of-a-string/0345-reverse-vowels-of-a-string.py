@@ -1,16 +1,24 @@
 class Solution:
     def reverseVowels(self, s: str) -> str:
+        s = list(s)
         len_s = len(s)
-        left, right = 0, len_s-1
+        left, right = 0, len(s)-1
+        
+        def isVowel(c: chr) -> bool:
+            return c == 'a' or c == 'e' or c == 'i' or c == 'o' or c == 'u' or \
+                   c == 'A' or c == 'E' or c == 'I' or c == 'O' or c == 'U'
+        
         while True:
-            while left < len_s and s[left] not in ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']:
+            while left < len_s and not isVowel(s[left]):
                 left += 1
-            while right >= 0 and s[right] not in ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']:
+            while 0 <= right and not isVowel(s[right]):
                 right -= 1
             if left >= right:
                 break
-            s = s[:left] + s[right] + s[left+1:right] + s[left] + s[right+1:]
+            s[left], s[right] = s[right], s[left]
             left += 1
             right -= 1
-        return s
+        
+        return ''.join(s)
+        
             
