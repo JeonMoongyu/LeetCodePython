@@ -5,18 +5,21 @@
 #         self.left = None
 #         self.right = None
 
-import queue
+from collections import deque
 
 class Solution:
     def getTargetCopy(self, original: TreeNode, cloned: TreeNode, target: TreeNode) -> TreeNode:
-        Q = queue.Queue()
-        Q.put(cloned)
-        while not Q.empty():
-            node = Q.get()
-            if node.val == target.val:
-                return node
-            if node.left:
-                Q.put(node.left)
-            if node.right:
-                Q.put(node.right)
+        Q1, Q2 = deque([original,]), deque([cloned,])
+        
+        while Q1:
+            node1, node2 = Q1.popleft(), Q2.popleft()
+            if node1 == target:
+                return node2
+            if node1.left:
+                Q1.append(node1.left)
+                Q2.append(node2.left)
+            if node1.right:
+                Q1.append(node1.right)
+                Q2.append(node2.right)
+
             
