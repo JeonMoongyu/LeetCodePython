@@ -6,7 +6,7 @@ class Solution:
         out = 0
         len_arr = len(arr)
         
-        while curr < len_arr:
+        while True:
             if curr == len_arr - 1:
                 if pastPeak:
                     out = max(curr - start + 1, out)
