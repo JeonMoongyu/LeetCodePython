@@ -4,7 +4,9 @@ class Solution:
         out = []
         for i in range(l):
             for j in range(l):
-                if i != j and words[i] not in out and self.isSubstring(words[i], words[j]):
+                if i == j:
+                    continue
+                if self.isSubstring(words[i], words[j]) and words[i] not in out:
                     out.append(words[i])
         return out
         
